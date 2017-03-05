@@ -18,7 +18,7 @@ oss-bot can currently:
 
 ### Set up your own bot server & account
 
-> Cheat: If your project follows [these conventions](https://github.com/oss-generic/process/blob/master/docs/FormatsAndConventions.md), skip to the next section and simply set your GitHub webhook to `https://oss-bot.herokuapp.com/pull_req`. This bot also enforces the convention that the PR description starts with `Fixes #<issue-number>`.
+> Cheat: If your project follows [these conventions](https://github.com/oss-generic/process/blob/master/docs/FormatsAndConventions.md), skip to the next section and simply set your GitHub webhook to `https://oss-bot-js.herokuapp.com/pull_req`. This bot also enforces the convention that the PR description contains `<GitHub-keyword> #<issue-number>`.
 
 1. Fork/clone this repository.
 1. Create a new GitHub user account for your bot, e.g. `teammates-bot`.
@@ -27,8 +27,10 @@ oss-bot can currently:
 1. In the Heroku app settings, click `Reveal Config Vars`. Add the following keys: 
 ```
     GITHUB_API_TOKEN : Your bot's GitHub API access token
+    CONTRIBUTING_GUIDELINES : Your project's contributing guidelines
     REGEX_PULL_REQ_TITLE : Javascript regex to validate the PR title
     REGEX_PULL_REQ_BODY : Javascript regex to validate the PR description
+    ENABLE_KEYWORD_CHECKER (optional variable) : Set value to `TRUE` to enable GitHub keyword checking 
 ```
 1. Deploy the bot to Heroku.
 
